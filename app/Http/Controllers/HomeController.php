@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+
 class HomeController extends Controller
 {
     public function index()
     {
-        $data = [
-            'username'        => 'Viola',
-            'last_login'      => date('Y-m-d H:i:s'),
-            'list_pendidikan' => ['SD', 'SMP', 'SMA', 'S1', 'S2', 'S3']
-        ];
+        $products = Product::with('category')->latest()->take(3)->get();
 
-        return view('home', $data);
+        return view('home', compact('products'));
     }
 }
