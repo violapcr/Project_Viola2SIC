@@ -1,6 +1,6 @@
 @extends('layouts.guest')
 
-@section('title', 'Products | Alzuvi Bakery')
+@section('title', 'Products | Jemta Bakery')
 
 @section('content')
     <h1 class="page-title">Our Products</h1>
