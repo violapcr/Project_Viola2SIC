@@ -1,11 +1,26 @@
 :root {
-    --bg: #FFF5CC;
-    --pink: #FFDCEF;
-    --maroon: #7B1D4E;
-    --olive: #7FA21F;
-    --text: #4A1633;
-    --muted: #8A5A74;
-    --photo: #F6D9A8;
+    --bg: #FFF6F9;
+    /* latar halaman: pink sangat lembut */
+    --pink: #F9DCE7;
+    /* banner, kotak form, footer */
+    --maroon: #A8486E;
+    /* judul dan tombol: rose berdebu */
+    --olive: #6A9A78;
+    /* menu dan kategori: hijau sage */
+    --text: #4A2B38;
+    /* teks utama */
+    --muted: #8F6B7A;
+    /* teks pendukung */
+    --photo: #DDEBDF;
+    /* kotak foto: hijau sage muda */
+    --card: #FFFDFE;
+    /* kartu putih lembut */
+    --line: #F0D3DE;
+    /* garis tipis */
+    --line-strong: #E3BFCE;
+    /* garis pembatas */
+    --wa: #5E9C74;
+    /* tombol WhatsApp */
 }
 
 * {
@@ -40,6 +55,8 @@ h3 {
     align-items: center;
     justify-content: space-between;
     padding: 24px 80px;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 .logo {
@@ -121,7 +138,7 @@ h3 {
     margin: 0 0 28px;
 }
 
-/* Button */
+/* Tombol */
 .btn {
     display: inline-block;
     background: var(--maroon);
@@ -135,16 +152,51 @@ h3 {
     cursor: pointer;
 }
 
-/* Produk */
+.btn-outline {
+    background: transparent;
+    color: var(--maroon);
+    border: 1px solid var(--maroon);
+}
+
+.btn-wa {
+    display: block;
+    text-align: center;
+    margin-top: 24px;
+    background: #1B7A1B;
+}
+
+/* Judul halaman */
+.page-title {
+    font-size: 64px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.page-sub {
+    text-align: center;
+    margin: 0 0 30px;
+    color: var(--maroon);
+}
+
 .section-title {
     font-size: 44px;
     margin: 50px 0 24px;
 }
 
+/* Kartu produk */
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px 55px;
+}
+
+.card-link {
+    display: block;
+}
+
+.card-link:hover h3 {
+    text-decoration: underline;
 }
 
 .card img,
@@ -184,175 +236,356 @@ h3 {
     color: var(--muted);
 }
 
+/* Filter dan pagination */
+.filter {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.filter input,
+.filter select {
+    padding: 12px 14px;
+    border: 1px solid #EBD9A8;
+    background: #FFFBE6;
+    font-family: 'Arapey', serif;
+    font-size: 18px;
+    color: var(--text);
+}
+
+.filter input {
+    flex: 2;
+}
+
+.filter select {
+    flex: 1;
+}
+
+.pagination-wrap {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination .page-link {
+    display: block;
+    padding: 8px 14px;
+    border: 1px solid var(--maroon);
+    color: var(--maroon);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+}
+
+.pagination .active .page-link {
+    background: var(--maroon);
+    color: var(--bg);
+}
+
+.pagination .disabled .page-link {
+    opacity: .4;
+}
+
+/* About */
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    margin-top: 30px;
+}
+
+.about-img {
+    height: 420px;
+    background: var(--photo);
+    display: grid;
+    place-items: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: var(--muted);
+}
+
+.about-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-lead {
+    font-size: 26px;
+    color: var(--maroon);
+    margin-top: 0;
+}
+
+/* Detail produk */
+.back {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: var(--muted);
+}
+
+.detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    margin-top: 20px;
+}
+
+.detail-img {
+    height: 480px;
+    background: var(--photo);
+    display: grid;
+    place-items: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: var(--muted);
+}
+
+.detail-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.detail-info h1 {
+    font-size: 64px;
+    margin: 6px 0 12px;
+}
+
+.detail-desc {
+    color: var(--muted);
+    font-size: 24px;
+    margin: 0 0 20px;
+}
+
+.detail-price {
+    font-family: 'Italiana', serif;
+    font-size: 48px;
+    color: var(--maroon);
+    margin: 0 0 24px;
+}
+
+/* Form order */
+.order {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    margin-top: 24px;
+    align-items: start;
+}
+
+.order-h {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 18px;
+}
+
+.order-card {
+    background: #FFFBE6;
+    border: 1px solid #EBD9A8;
+    padding: 20px;
+}
+
+.order-img {
+    height: 300px;
+    background: var(--photo);
+    display: grid;
+    place-items: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: var(--muted);
+}
+
+.order-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.order-info {
+    padding: 20px 4px 4px;
+}
+
+.order-name {
+    font-size: 40px;
+    margin: 4px 0 6px;
+}
+
+.order-qty {
+    margin-top: 22px;
+    max-width: 140px;
+}
+
+.order-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 1px dashed #C9A94A;
+    font-size: 20px;
+}
+
+.order-total strong {
+    font-family: 'Italiana', serif;
+    font-weight: 400;
+    font-size: 36px;
+    color: var(--maroon);
+}
+
+.order-box {
+    background: var(--pink);
+    padding: 36px;
+}
+
+.order .field {
+    margin-bottom: 24px;
+}
+
+.order label {
+    display: block;
+    margin: 0 0 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--maroon);
+}
+
+.order input,
+.order textarea {
+    width: 100%;
+    padding: 10px 2px;
+    border: 0;
+    border-bottom: 1px solid var(--maroon);
+    background: transparent;
+    font-family: 'Arapey', serif;
+    font-size: 22px;
+    color: var(--text);
+    outline: none;
+    resize: none;
+}
+
+.order input:focus,
+.order textarea:focus {
+    border-bottom: 2px solid var(--olive);
+}
+
+.order input::placeholder {
+    color: var(--muted);
+    opacity: .6;
+}
+
+.order-submit {
+    width: 100%;
+    padding: 18px;
+    margin-top: 8px;
+    font-size: 16px;
+    letter-spacing: .12em;
+}
+
+.order-note {
+    text-align: center;
+    margin: 14px 0 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.field-error {
+    color: #B3261E;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+/* Halaman sukses */
+.success {
+    text-align: center;
+}
+
+.success-no {
+    font-size: 18px;
+    margin: 10px 0 20px;
+}
+
+.success-card {
+    max-width: 520px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #C9A94A;
+    border-radius: 28px;
+    padding: 28px 36px;
+    text-align: left;
+}
+
+.success-card h2 {
+    font-family: 'Arapey', serif;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 24px;
+    color: var(--text);
+    margin-bottom: 16px;
+}
+
+.success-card .row {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    font-size: 18px;
+}
+
+.success-card .total {
+    margin-top: 16px;
+    font-weight: 700;
+}
+
+.success-card hr {
+    border: 0;
+    border-top: 1px dashed #999;
+    margin: 14px 0;
+}
+
 /* Footer */
 .footer {
     background: var(--pink);
     text-align: center;
     padding: 20px;
-    color:
+    color: var(--maroon);
+}
 
-    /* Halaman Products */
-    .page-title {
-        font-size: 64px;
-        text-align: center;
-        text-transform: uppercase;
-        margin-top: 10px;
+@media (max-width: 900px) {
+
+    .navbar,
+    .container {
+        padding-left: 24px;
+        padding-right: 24px;
     }
 
-    .page-sub {
-        text-align: center;
-        margin: 0 0 30px;
-        color: var(--maroon);
+    .grid,
+    .order,
+    .detail,
+    .about,
+    .hero {
+        grid-template-columns: 1fr;
     }
 
-    .filter {
-        display: flex;
-        gap: 12px;
-        margin-bottom: 30px;
+    .hero h1 {
+        font-size: 52px;
     }
-
-    .filter input,
-    .filter select {
-        padding: 12px 14px;
-        border: 1px solid #EBD9A8;
-        background: #FFFBE6;
-        font-family: 'Arapey', serif;
-        font-size: 18px;
-        color: var(--text);
-    }
-
-    .filter input {
-        flex: 2;
-    }
-
-    .filter select {
-        flex: 1;
-    }
-
-    /* Pagination */
-    .pagination-wrap {
-        margin-top: 40px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .pagination {
-        display: flex;
-        gap: 8px;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .pagination .page-link {
-        display: block;
-        padding: 8px 14px;
-        border: 1px solid var(--maroon);
-        color: var(--maroon);
-        font-family: 'Inter', sans-serif;
-        font-size: 15px;
-    }
-
-    .pagination .active .page-link {
-        background: var(--maroon);
-        color: var(--bg);
-    }
-
-    .pagination .disabled .page-link {
-        opacity: .4;
-    }
-
-    /* Halaman About */
-    .about {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-        align-items: start;
-        margin-top: 30px;
-    }
-
-    .about-img {
-        height: 420px;
-        background: var(--photo);
-        display: grid;
-        place-items: center;
-        font-family: 'Inter', sans-serif;
-        font-size: 16px;
-        color: var(--muted);
-    }
-
-    .about-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .about-lead {
-        font-size: 26px;
-        color: var(--maroon);
-        margin-top: 0;
-    }
-
-    .btn-outline {
-        background: transparent;
-        color: var(--maroon);
-        border: 1px solid var(--maroon);
-    }
-
-    /* Detail produk */
-    .card-link {
-        display: block;
-    }
-
-    .card-link:hover h3 {
-        text-decoration: underline;
-    }
-
-    .back {
-        font-family: 'Inter', sans-serif;
-        font-weight: 300;
-        font-size: 16px;
-        color: var(--muted);
-    }
-
-    .detail {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-        align-items: start;
-        margin-top: 20px;
-    }
-
-    .detail-img {
-        height: 480px;
-        background: var(--photo);
-        display: grid;
-        place-items: center;
-        font-family: 'Inter', sans-serif;
-        font-size: 16px;
-        color: var(--muted);
-    }
-
-    .detail-img img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .detail-info h1 {
-        font-size: 64px;
-        margin: 6px 0 12px;
-    }
-
-    .detail-desc {
-        color: var(--muted);
-        font-size: 24px;
-        margin: 0 0 20px;
-    }
-
-    .detail-price {
-        font-family: 'Italiana', serif;
-        font-size: 48px;
-        color: var(--maroon);
-        margin: 0 0 24px;
-    }
+}

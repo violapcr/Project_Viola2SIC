@@ -20,7 +20,7 @@
             <p class="detail-desc">{{ $product->description }}</p>
             <p class="detail-price">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
             {{-- Tautan ini diganti ke form pesanan di Tahap C --}}
-            <a href="#" class="btn">Pesan sekarang</a>
+            <a href="{{ route('order.create', $product) }}" class="btn">Pesan sekarang</a>
         </div>
     </section>
 
