@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Category;
@@ -24,5 +23,18 @@ class ProductController extends Controller
         $categories = Category::all();
 
         return view('products.index', compact('products', 'categories'));
+    }
+
+    public function show(Product $product)
+    {
+        $product->load('category');
+
+        $related = Product::with('category')
+            ->where('category_id', $product->category_id)
+            ->where('product_id', '!=', $product->product_id)
+            ->take(3)
+            ->get();
+
+        return view('products.show', compact('product', 'related'));
     }
 }
