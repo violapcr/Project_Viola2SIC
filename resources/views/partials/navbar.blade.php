@@ -1,5 +1,5 @@
 <aside class="sidebar">
-    <a href="{{ route('home') }}" class="logo">Alzuvi<br>Bakery</a>
+    <a href="{{ route('home') }}" class="logo">Maison<br>Jemta</a>
 
     <nav>
         <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">Home</a>
